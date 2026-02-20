@@ -277,14 +277,12 @@
         font-size: 14px;
       }
 
-    .parallax-title h1 {
-    font-size: 15vw;
-    letter-spacing: 2px;
-    color: #f0d98a;     /* yazının içi dolu olur */
-    -webkit-text-stroke: 0;
-    -webkit-text-fill-color: #f0d98a;
-}
- 
+      /* Düzeltilmiş KELAMIX */
+      .parallax-title h1 {
+        font-size: 10vw;
+        letter-spacing: 2px;
+
+      }
     }
 
     /* Küçük Telefon */
