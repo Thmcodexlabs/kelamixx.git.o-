@@ -131,7 +131,7 @@
     .parallax-layer {
       position: absolute;
       width: 100%;
-      height: 120%;
+      height: 110%;
       object-fit: cover;
       top: -10%;
     }
@@ -277,11 +277,14 @@
         font-size: 14px;
       }
 
-      /* Düzeltilmiş KELAMIX */
-      .parallax-title h1 {
-        font-size: 15vw;
-        letter-spacing: 2px;
-      }
+    .parallax-title h1 {
+    font-size: 15vw;
+    letter-spacing: 2px;
+    color: #f0d98a;     /* yazının içi dolu olur */
+    -webkit-text-stroke: 0;
+    -webkit-text-fill-color: #f0d98a;
+}
+ 
     }
 
     /* Küçük Telefon */
