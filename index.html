@@ -19,7 +19,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<link rel="stylesheet" href="stayl.css">
+  <link rel="stylesheet" href="stayl.css">
 </head>
 
 <body>
@@ -65,7 +65,7 @@
       <img class="parallax-layer" data-parallax-layer="1"
         src="https://images.pexels.com/photos/3379550/pexels-photo-3379550.jpeg">
 
-    
+
 
 
       <div class="parallax-title" data-parallax-layer="3">
@@ -189,7 +189,39 @@
 
   </div>
 
+<div class="section">
 
+  <!-- SOL: FLOATING LOGOLAR + KAYAN BAŞLIK -->
+  <div class="left-logos">
+    <div class="logo-box">
+      <a href="https://thmcodexlabs.com/"><img class="logo1" src="THM.png" alt=""></a>
+      <a href="https://thmcodexlabs.github.io/barutcu.git.oi/"><img class="logo2" src="https://thmcodexlabs.github.io/barutcu.git.oi/logodemir.png" alt=""></a>
+      <a href="https://thmcodexlabs.github.io/hakan/"><img class="logo3" src="https://thmcodexlabs.github.io/hakan/cesur_logo-removebg-preview%20-%20Kopya.png" alt=""></a>
+      <a href="#"><img class="logo4" src="Gemini_Generated_Image_lzeu7ylzeu7ylzeu.png" alt=""></a>
+      <img class="logo5" src="THM.png" alt="">
+    </div>
+
+    <div class="curved-loop-container">
+      <svg class="curved-loop-svg" viewBox="0 0 1440 120">
+        <defs>
+          <path id="curve" d="M0,80 Q720,0 1440,80" fill="transparent" />
+        </defs>
+        <text class="curved-loop-text">
+          <textPath style="font-size: 100px;" id="textPath" href="#curve" startOffset="0">
+            PROJELERİMİZ ✦ CESUR DEMİR ✦ KELAMIX ✦ THM CODEX LABS ✦
+          </textPath>
+        </text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- SAĞ: SARI ALAN + SVG -->
+  <div class="right-side">
+    <div class="circle-bg"></div>
+    <img src="https://cdn.prod.website-files.com/5d5e2ff58f10c53dcffd8683/5d5e304c8f10c501d7fd8a1d_meditating.svg" alt="SVG">
+  </div>
+
+</div>
   <div class="logo-wrapper">
     <div class="logo-row">
 
@@ -264,6 +296,18 @@
 
 
 
+
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+  
   <section class="skills">
 
     <p class="subtitle">
@@ -301,9 +345,9 @@
 
 
 
-  
-<script>
-  
+
+  <script>
+
     /* Menü Açma */
     const openBtn = document.getElementById("openMenu");
     const closeBtn = document.getElementById("closeMenu");
@@ -576,7 +620,20 @@
       img.style.transform = "translate(0, 0)";
       circle.style.transform = "translate(-50%, -50%)";
     });
-</script>
+
+
+const textPath = document.getElementById('textPath');
+const textContent = textPath.textContent + " \u00A0";
+textPath.textContent = textContent.repeat(20); // Tekrar ile sürekli akış
+
+let offset = 0;
+function animateText() {
+  offset -= 2; // hız
+  textPath.setAttribute('startOffset', offset);
+  requestAnimationFrame(animateText);
+}
+animateText();
+  </script>
 
   <!-- JS -->
   <link rel="stylesheet" href="script.js">
