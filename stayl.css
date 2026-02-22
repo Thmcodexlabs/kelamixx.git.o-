@@ -30,7 +30,7 @@
   /* Menü Butonu */
   .menu-btn {
     cursor: pointer;
-    font-size: 18px;
+    font-size: 8px;
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -38,7 +38,7 @@
   }
 
   .menu-plus {
-    font-size: 32px;
+    font-size: 42px;
     transition: .3s;
   }
 
@@ -587,11 +587,13 @@
   .left-image img,
   .circle-bg {
     transition: transform 0.25s ease-out;
+    
   }
 
   /* SOL KISIM */
   .left-image {
     width: 50%;
+
     background: #FCD12A;
     display: flex;
     justify-content: center;
@@ -697,7 +699,9 @@
 
     .left-image,
     .right-content {
+     
       width: 100%;
+      height: 500px;
     }
 
     .right-content {
@@ -955,12 +959,6 @@
 
 
 
-  body {
-    margin: 0;
-    padding: 0;
-
-    overflow-x: hidden;
-  }
 
   @keyframes slide {
     from {
@@ -1049,6 +1047,7 @@
 
 /* SAĞ SARI ALAN */
 .right-side {
+
   flex: 1; 
   background: #f9cf28;
   display: flex;
@@ -1059,8 +1058,8 @@
 }
 
 .circle-bg {
-  width: 360px;
-  height: 360px;
+  width: 380px;
+  height: 380px;
   background: #fff;
   border-radius: 50%;
   position: absolute;
@@ -1068,7 +1067,7 @@
 }
 
 .right-side img {
-  width: 55%;
+  width: 70%;
   z-index: 2;
   transition: 0.35s ease;
 }
@@ -1104,7 +1103,7 @@
 }
 
 /* MEDIA QUERIES */
-@media(max-width: 768px) { .section {  flex-direction: column; } .left-logos, .right-side { width: 100%; min-height: auto; padding: 30px 0; } .curved-loop-text { font-size: 2rem; } }
+@media(max-width: 768px) { .section {  flex-direction: column; } .left-logos, .right-side { width: 100%; min-height: 400px; padding: 30px 0; } .curved-loop-text { font-size: 2rem; } }
 @media(max-width: 576px) { .curved-loop-text { font-size: 1.5rem; } }
 
 
