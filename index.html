@@ -23,7 +23,7 @@
 </head>
 
 <body>
-
+  <div id="color-bends" class="color-bends-container"></div>
   <!-- NAV -->
   <div class="container">
     <div class="logo">
@@ -68,7 +68,14 @@
 
 
       <div class="parallax-title" data-parallax-layer="3">
-        <h1 id="kelamixText">KELAMIX</h1>
+        <h1 id="kelamixText"></h1>
+        <h1 class="stacked">
+  <span class="stackedItem"><em>KELEMIX</em></span>
+  <span class="stackedItem"><em>KELEMIX</em></span>
+  <span class="stackedItem"><em>KELEMIX</em></span>
+  <span class="stackedItem"><em>KELEMIX</em></span>
+  <span class="stackedItem"><em>KELEMIX</em></span>
+</h1>
       </div>
       <div class="middle">
         <h1>Animation</h1>
@@ -209,7 +216,8 @@
           </defs>
           <text class="curved-loop-text">
             <textPath style="font-size: 100px;" id="textPath" href="#curve" startOffset="0">
-              PROJELERİMİZ ✦ CESUR DEMİR ✦ KELAMIX ✦ THM CODEX LABS ✦
+              PROJELERİMİZ ✦ CESUR DEMİR ✦ KELAMIX ✦ THM CODEX LABS ✦ PROJELERİMİZ
+              
             </textPath>
           </text>
         </svg>
@@ -344,8 +352,53 @@
 
 
 
+    <main class="page-container">
+        <section class="content-side" id="leftSide">
+            <div class="header-top">
+                <span style="font-weight: 800; font-size: 0.8rem; letter-spacing: 3px; color: #000; opacity: 0.5;">İLETİŞİM</span>
+                <h1>Sizinle<br>Tanışalım.</h1>
+            </div>
 
+            <div class="img-container">
+                <img src="Open Doodles - Coffee.png" alt="Taha Barutcu Görsel" id="mainImage">
+            </div>
 
+            <div class="info-footer">
+                <div class="info-card">
+                    <h4>E-POSTA</h4>
+                    <p>tahabarutcu9@gmail.com</p>
+                </div>
+                <div class="info-card">
+                    <h4>KONUM</h4>
+                    <p>Antalya, Türkiye</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-side" id="rightSide">
+            <div class="form-wrapper">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>Adınız Soyadınız</label>
+                        <input type="text" name="name" placeholder="Taha Barutcu" required>
+                    </div>
+                    <div class="form-group">
+                        <label>E-posta Adresiniz</label>
+                        <input type="email" name="email" placeholder="taha@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Konu</label>
+                        <input type="text" name="subject" placeholder="Yardımcı olabileceğimiz konu">
+                    </div>
+                    <div class="form-group">
+                        <label>Mesajınız</label>
+                        <textarea name="message" rows="4" placeholder="Projenizden veya fikrinizden bahsedin..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">Gönder</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
   <script>
 
@@ -634,6 +687,66 @@
       requestAnimationFrame(animateText);
     }
     animateText();
+
+
+
+
+
+        // Giriş Animasyonları
+        window.addEventListener('load', () => {
+            const tl = gsap.timeline({ defaults: { ease: "expo.out" }});
+            tl.from("#leftSide", { xPercent: -100, duration: 1.2 })
+              .from("#rightSide", { opacity: 0, x: 50, duration: 1 }, "-=0.6")
+              .from(".header-top, .img-container, .info-footer", { opacity: 0, y: 40, stagger: 0.2, duration: 1 }, "-=0.4")
+              .from(".form-group", { opacity: 0, y: 20, stagger: 0.1, duration: 0.8 }, "-=0.8");
+        });
+
+        // Form İşlemleri
+        const form = document.getElementById("contactForm");
+        const btn = document.getElementById("submitBtn");
+
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            
+            const originalText = "Gönder";
+            const originalBg = "#000";
+            
+            // Gönderim Başlıyor
+            btn.innerHTML = "GÖNDERİLİYOR...";
+            btn.disabled = true;
+
+            const formData = new FormData(event.target);
+
+            try {
+                const response = await fetch("https://formspree.io/f/mdkqbydk", {
+                    method: "POST",
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    // Başarılı
+                    btn.innerHTML = "MESAJ ALINDI ✓";
+                    btn.style.background = "#22c55e";
+                    form.reset();
+                } else {
+                    // Hata
+                    btn.innerHTML = "HATA OLUŞTU!";
+                    btn.style.background = "#ef4444";
+                }
+            } catch (error) {
+                // Bağlantı Hatası
+                btn.innerHTML = "BAĞLANTI HATASI!";
+                btn.style.background = "#ef4444";
+            } finally {
+                // 3 Saniye Sonra Sıfırla
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = originalBg;
+                    btn.disabled = false;
+                }, 3000);
+            }
+        });
   </script>
 
   <!-- JS -->
